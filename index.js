@@ -99,21 +99,19 @@ function heal(maxHp, currentHp, healAmount) {
 function getProficiencyBonus(level, rank) {
   // TODO
   function getProficiencyBonus(level, rank) {
-  const bonuses = {
-    untrained: 0,
-    trained: 2,
-    expert: 4,
-    master: 6,
-    legendary: 8
-  };
-
-  const bonus = bonuses[rank] || 0;
-
-  if (rank === 'untrained' || !rank) {
-    return 0;
+  switch (rank) {
+    case 'trained':
+      return level + 2;
+    case 'expert':
+      return level + 4;
+    case 'master':
+      return level + 6;
+    case 'legendary':
+      return level + 8;
+    case 'untrained':
+    default:
+      return 0;
   }
-
-  return level + bonus;
 }
 }
 
