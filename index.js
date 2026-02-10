@@ -98,6 +98,23 @@ function heal(maxHp, currentHp, healAmount) {
  */
 function getProficiencyBonus(level, rank) {
   // TODO
+  function getProficiencyBonus(level, rank) {
+  const bonuses = {
+    untrained: 0,
+    trained: 2,
+    expert: 4,
+    master: 6,
+    legendary: 8
+  };
+
+  const bonus = bonuses[rank] || 0;
+
+  if (rank === 'untrained' || !rank) {
+    return 0;
+  }
+
+  return level + bonus;
+}
 }
 
 /**
@@ -112,6 +129,17 @@ function getProficiencyBonus(level, rank) {
  */
 function getCoverBonus(behindObstacle, takingCover) {
   // TODO
+  function getCoverBonus(behindObstacle, takingCover) {
+  if (!behindObstacle) {
+    return 0;
+  }
+
+  if (takingCover) {
+    return 4;
+  } else {
+    return 2;
+  }
+}
 }
 
 /**
@@ -128,6 +156,15 @@ function getCoverBonus(behindObstacle, takingCover) {
  */
 function getRemainingHp(maxHp, currentHp, damage) {
   // TODO
+  function getRemainingHp(maxHp, currentHp, damage) {
+  if (damage >= maxHp * 2) {
+    return -1;
+  }
+
+  const remaining = currentHp - damage;
+
+  return Math.max(0, remaining);
+}
 }
 
 /**
@@ -154,4 +191,5 @@ function canSee(light, vision) {
  */
 function getStrikeDamage(attack, ac, damage) {
   // TODO
+  
 }
