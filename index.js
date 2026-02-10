@@ -7,6 +7,11 @@
  */
 function canCastSpell(isSpellPrepared, hasScroll) {
   // TODO
+  if isSpellPrepared || hasScroll {
+    return true
+  }else {
+    return false
+  }
 }
 
 /**
@@ -18,6 +23,12 @@ function canCastSpell(isSpellPrepared, hasScroll) {
  */
 function isHidden(hiding, aware) {
   // TODO
+  function isHidden(hiding, aware) {
+  if (hiding || !aware) {
+    return true;
+  }
+  return false;
+}
 }
 
 /**
@@ -29,6 +40,9 @@ function isHidden(hiding, aware) {
  */
 function doesStrikeHit(attack, ac) {
   // TODO
+  function doesStrikeHit(attack, ac) {
+  return attack >= ac;
+}
 }
 
 /**
@@ -40,6 +54,7 @@ function doesStrikeHit(attack, ac) {
  */
 function doesStrikeCrit(attack, ac) {
   // TODO
+  
 }
 
 /**
