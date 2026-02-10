@@ -54,7 +54,9 @@ function doesStrikeHit(attack, ac) {
  */
 function doesStrikeCrit(attack, ac) {
   // TODO
-  
+  function doesStrikeCrit(attack, ac) {
+  return attack >= ac + 10;
+}
 }
 
 /**
@@ -67,6 +69,15 @@ function doesStrikeCrit(attack, ac) {
  */
 function heal(maxHp, currentHp, healAmount) {
   // TODO
+  function heal(maxHp, currentHp, healAmount) {
+  let newHp = currentHp + healAmount;
+  
+  if (newHp > maxHp) {
+    return maxHp;
+  }
+  
+  return newHp;
+}
 }
 
 /**
