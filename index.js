@@ -21,7 +21,7 @@ function isHidden(hiding, aware) {
   function isHidden(hiding, aware) {
   if (hiding || !aware) {
     return true;
-  }
+  }else
   return false;
 }
 }
@@ -35,8 +35,10 @@ function isHidden(hiding, aware) {
  */
 function doesStrikeHit(attack, ac) {
   // TODO
-  function doesStrikeHit(attack, ac) {
-  return attack >= ac;
+  if (attack >= ac) {
+    return true;
+  } else {
+    return false;
 }
 }
 
@@ -70,7 +72,6 @@ function heal(maxHp, currentHp, healAmount) {
   if (newHp > maxHp) {
     return maxHp;
   }
-  
   return newHp;
 }
 }
@@ -153,11 +154,11 @@ function getRemainingHp(maxHp, currentHp, damage) {
   if (damage >= maxHp * 2) {
     return -1;
   }
-
-  const remaining = currentHp - damage;
-
-  return Math.max(0, remaining);
-}
+else if (damage >= currentHp) {
+    return 0;
+  }
+  else   
+    return currentHp - damage;  
 }
 
 /**
@@ -200,6 +201,20 @@ function canSee(light, vision) {
  */
 function getStrikeDamage(attack, ac, damage) {
   // TODO
+  let strikeDamage = 0;
+  let hit = doesStrikeHit(attack, ac);
+  let crit = doesStrikeCrit(attack, ac);
+  if (crit) {
+    strikeDamage = damage * 2;
+  } else if (hit) {
+    strikeDamage = damage;
+  } else {
+    strikeDamage = 0;
+  }
+  return strikeDamage;  
+  or 
+
+  if (doesStrikeCrit(attack, ac)) {
   function getStrikeDamage(attack, ac, damage) {
   if (doesStrikeCrit(attack, ac)) {
     return damage * 2;
@@ -210,3 +225,5 @@ function getStrikeDamage(attack, ac, damage) {
   }
 }
 }
+or
+
